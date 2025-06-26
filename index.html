@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #50fecacd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 100px;
+    }
+
+    .weather-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    
+    }
+
+    .weather-info {
+      text-align: left;
+      font-size: 1.2em;
+      margin-right: 50px;
+    }
+
+    .weather-info .temp {
+      font-size: 4em;
+      font-weight: bold;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid white;
+      background: transparent;
+      color: white;
+      font-size: 1em;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .search-box button {
+      padding: 12px 15px;
+      border: 2px solid rgb(180, 173, 173);
+      border-radius: 20px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="app-title">Weather App</div>
+    <div class="weather-box">
+      <div class="weather-info" id="weather">
+        <div class="temp">20</div>
+        <div>vijayawada</div>
+        <div>10:00 PM</div>
+        <div>mist</div>
+      </div>
+      <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Vijayawada">
+        <button onclick="searchWeather()">Search Button</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function searchWeather() {
+      const city = document.getElementById("cityInput").value;
+      // You can replace this with a real weather API later
+      const weatherElement = document.getElementById("weather");
+      weatherElement.innerHTML = `
+        <div class="temp">25</div>
+        <div>${city}</div>
+        <div>${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} ${new Date().toLocaleDateString('en-US', { weekday: 'long' })}</div>
+        <div>cloudy</div>
+      `;
+    }
+  </script>
+</body>
+</html>
